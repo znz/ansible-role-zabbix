@@ -1,5 +1,6 @@
 ---
-- apt: name=nginx,php5-fpm,zabbix-frontend-php
+- apt: name=nginx,php5-fpm,zabbix-frontend-php,fonts-takao-pgothic
+
 - lineinfile:
     dest: /etc/nginx/sites-available/default
     insertbefore: "^}$"
@@ -10,3 +11,5 @@
 - template: src=zabbix.conf.php.j2 dest=/etc/zabbix/zabbix.conf.php owner=root group=www-data mode=0640
   notify:
   - restart php5-fpm
+
+- file: dest=/usr/share/zabbix/fonts/DejaVuSans.ttf src=/usr/share/fonts/truetype/fonts-japanese-gothic.ttf state=link
