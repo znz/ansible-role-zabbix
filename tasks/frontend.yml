@@ -1,0 +1,12 @@
+---
+- apt: name=nginx,php5-fpm,zabbix-frontend-php
+- lineinfile:
+    dest: /etc/nginx/sites-available/default
+    insertbefore: "^}$"
+    line: "	include /usr/share/doc/zabbix-frontend-php/examples/nginx.conf;"
+  notify: restart nginx
+- template: src=php5-local.ini.j2 dest=/etc/php5/fpm/conf.d/local.ini owner=root group=root mode=0644
+  notify: restart php5-fpm
+- template: src=zabbix.conf.php.j2 dest=/etc/zabbix/zabbix.conf.php owner=root group=www-data mode=0640
+  notify:
+  - restart php5-fpm
