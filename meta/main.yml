@@ -9,9 +9,9 @@ galaxy_info:
   - name: Ubuntu
     versions:
     - trusty
-  - name: Debian
-    versions:
-    - wheezy
+#  - name: Debian
+#    versions:
+#    - wheezy
 
   categories:
   - database:sql

@@ -4,7 +4,7 @@
 
 ## Requirements
 
-- Ubuntu or Debian
+- Ubuntu 14.04
 
 ## Role Variables
 
