@@ -1,0 +1,4 @@
+---
+zabbix_dbname: zabbix
+zabbix_dbuser: zabbix
+zabbix_dbpass: zabbixdbpass

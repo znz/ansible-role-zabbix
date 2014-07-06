@@ -1,0 +1,5 @@
+---
+- apt: name=zabbix-agent
+- apt: name=zabbix-server-pgsql
+- apt: name=postgresql
+- apt: name=python-psycopg2

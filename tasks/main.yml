@@ -1,0 +1,6 @@
+---
+- include: packages.yml tags=zabbix-packages
+- include: postgres.yml tags=zabbix-postgres
+  sudo: yes
+  sudo_user: postgres
+- include: init.yml tags=zabbix-init

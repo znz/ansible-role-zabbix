@@ -1,0 +1,5 @@
+---
+# createdb zabbix
+- postgresql_db: name={{ zabbix_dbname }}
+# createuser -SDRP zabbix
+- postgresql_user: name={{ zabbix_dbuser }} password=md5{{ (zabbix_dbpass + zabbix_dbuser) | md5 }} role_attr_flags=NOSUPERUSER,NOCREATEDB,NOCREATEROLE
