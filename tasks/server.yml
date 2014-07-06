@@ -1,0 +1,18 @@
+---
+- file: path=/etc/zabbix/zabbix_server.conf owner=root group=zabbix mode=0640
+  notify: restart zabbix-server
+- lineinfile:
+    dest: /etc/zabbix/zabbix_server.conf
+    regexp: "^(# )?DBName="
+    line: "DBName={{ zabbix_dbname }}"
+  notify: restart zabbix-server
+- lineinfile:
+    dest: /etc/zabbix/zabbix_server.conf
+    regexp: "^(# )?DBUser="
+    line: "DBUser={{ zabbix_dbuser }}"
+  notify: restart zabbix-server
+- lineinfile:
+    dest: /etc/zabbix/zabbix_server.conf
+    regexp: "^(# )?DBPassword="
+    line: "DBPassword={{ zabbix_dbpass }}"
+  notify: restart zabbix-server

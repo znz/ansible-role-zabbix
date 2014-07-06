@@ -4,4 +4,5 @@
   sudo: yes
   sudo_user: postgres
 - include: init.yml tags=zabbix-init
+- include: server.yml tags=zabbix-server
 - include: frontend.yml tags=zabbix-frontend
