@@ -1,4 +1,5 @@
 ---
+- command: bash -c "zcat /usr/share/zabbix-server-pgsql/{schema,images,data}.sql.gz | sudo -u zabbix psql zabbix"
 - file: path=/etc/zabbix/zabbix_server.conf owner=root group=zabbix mode=0640
   notify: restart zabbix-server
 - lineinfile:
@@ -15,4 +16,6 @@
     dest: /etc/zabbix/zabbix_server.conf
     regexp: "^(# )?DBPassword="
     line: "DBPassword={{ zabbix_dbpass }}"
+  notify: restart zabbix-server
+- lineinfile: dest=/etc/default/zabbix-server regexp=^START= line=START=yes
   notify: restart zabbix-server
