@@ -1,0 +1,20 @@
+---
+galaxy_info:
+  author: Kazuhiro NISHIYAMA
+  description: Zabbix with postgresql
+  license: MIT
+  min_ansible_version: 1.2
+
+  platforms:
+  - name: Ubuntu
+    versions:
+    - trusty
+   name: Debian
+    versions:
+    - wheezy
+
+  categories:
+  - database:sql
+  - monitoring
+
+dependencies: []
