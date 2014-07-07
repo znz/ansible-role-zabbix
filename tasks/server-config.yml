@@ -5,3 +5,13 @@
     line: "StartPingers={{ zabbix_server_start_pingers }}"
   notify: restart zabbix-server
   when: zabbix_server_start_pingers is defined
+
+- file: path=/etc/zabbix/externalscripts state=directory owner=root group=root mode=0755
+- copy: src=sslnotafter.rb dest=/etc/zabbix/externalscripts/sslnotafter.rb owner=root group=root mode=0755
+
+- lineinfile:
+    dest: /etc/zabbix/zabbix_server.conf
+    regexp: "^(# )?Timeout="
+    line: "Timeout={{ zabbix_server_timeout }}"
+  notify: restart zabbix-server
+  when: zabbix_server_timeout is defined
