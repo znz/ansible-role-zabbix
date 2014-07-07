@@ -15,7 +15,7 @@
 - `php5_max_execution_time`: 300
 - `php5_max_input_time`: 300
 - `php5_date_timezone`: "Asia/Tokyo"
-- `zabbix_start_pingers`: zabbix-server's `StartPingers`
+- `zabbix_server_start_pingers`: zabbix-server's `StartPingers`
 
 ## Dependencies
 
