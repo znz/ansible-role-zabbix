@@ -1,0 +1,7 @@
+---
+- lineinfile:
+    dest: /etc/zabbix/zabbix_server.conf
+    regexp: "^(# )?StartPingers="
+    line: "StartPingers={{ zabbix_start_pingers }}"
+  notify: restart zabbix-server
+  when: zabbix_start_pingers is defined
