@@ -1,0 +1,2 @@
+---
+- template: src=local-zabbix-dump.j2 dest=/etc/cron.daily/local-zabbix-dump owner=root group=root mode=0755
