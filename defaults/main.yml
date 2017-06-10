@@ -14,7 +14,8 @@ zabbix_server_conf: |
   StartPingers=3
   Timeout=5
 
-zabbix_db_dump_dir: "/srv/zabbix-backup"
+zabbix_db_dump_directory: "/srv/zabbix-backup"
+zabbix_db_dump_keep_days: 90
 
 php_memory_limit: "256M"
 php_post_max_size: "16M"

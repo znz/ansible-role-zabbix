@@ -3,7 +3,7 @@ galaxy_info:
   author: Kazuhiro NISHIYAMA
   description: Zabbix with postgresql
   license: MIT
-  min_ansible_version: 1.2
+  min_ansible_version: 2.2
 
   platforms:
   #- name: Ubuntu

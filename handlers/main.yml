@@ -9,3 +9,9 @@
   service: name=zabbix-agent state=restarted
 - name: restart zabbix-server
   service: name=zabbix-server state=restarted
+- name: enable a timer for zabbix-backup
+  systemd:
+    name: zabbix-backup.timer
+    state: started
+    enabled: yes
+    daemon_reload: yes

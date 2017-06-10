@@ -3,6 +3,7 @@
 - include: postgres.yml tags=zabbix-postgres
   become: yes
   become_user: postgres
-- include: postgres-backup.yml tags=zabbix-postgres-backup
+- include: backup.yml tags=zabbix-backup
 - include: server.yml tags=zabbix-server
 - include: frontend.yml tags=zabbix-frontend
+- include: externalscripts.yml tags=zabbix-externalscripts

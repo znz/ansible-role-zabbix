@@ -1,0 +1,6 @@
+[Unit]
+Description=Backup postgresql data of zabbix
+
+[Service]
+Type=oneshot
+ExecStart=/etc/zabbix/backup.sh
