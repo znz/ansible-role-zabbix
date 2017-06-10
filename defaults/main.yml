@@ -14,7 +14,7 @@ zabbix_server_conf: |
   StartPingers=3
   Timeout=5
 
-zabbix_db_dump_dir: "/vagrant/backup"
+zabbix_db_dump_dir: "/srv/zabbix-backup"
 
 php_memory_limit: "256M"
 php_post_max_size: "16M"
