@@ -1,5 +1,6 @@
 #!/usr/bin/ruby
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 require 'socket'
 require 'openssl'
 
