@@ -1,6 +1,13 @@
 ---
+- name: "Check database"
+  command: psql zabbix -c "SELECT * FROM dbversion;"
+  become_user: zabbix
+  register: result
+  ignore_errors: yes
+  changed_when: no
 - name: "Import initial data"
   command: bash -c "zcat /usr/share/zabbix-server-pgsql/{schema,images,data}.sql.gz | sudo -u zabbix psql zabbix"
+  when: result.rc != 0
 - name: "Update zabbix_server.conf"
   template:
     src: zabbix_server.conf.j2
