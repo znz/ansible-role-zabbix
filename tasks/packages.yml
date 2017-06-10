@@ -1,5 +1,4 @@
 ---
-- apt: name=zabbix-agent
-- apt: name=zabbix-server-pgsql
-- apt: name=postgresql
-- apt: name=python-psycopg2
+- name: "Install packages"
+  apt: name={{ item }}
+  with_items: "{{ zabbix_packages }}"

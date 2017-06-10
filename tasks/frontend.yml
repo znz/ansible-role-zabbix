@@ -1,15 +1,21 @@
 ---
-- apt: name=nginx,php5-fpm,zabbix-frontend-php,fonts-takao-pgothic
+- name: "Install frontend packages"
+  apt: name={{ item }}
+  with_items: "{{ zabbix_frontend_packages }}"
 
 - lineinfile:
     dest: /etc/nginx/sites-available/default
     insertbefore: "^}$"
     line: "	include /usr/share/doc/zabbix-frontend-php/examples/nginx.conf;"
   notify: restart nginx
-- template: src=php5-local.ini.j2 dest=/etc/php5/fpm/conf.d/local.ini owner=root group=root mode=0644
-  notify: restart php5-fpm
+- template: src=php-local.ini.j2 dest=/etc/php/7.0/fpm/conf.d/50-local.ini owner=root group=root mode=0644
+  notify: restart php-fpm
 - template: src=zabbix.conf.php.j2 dest=/etc/zabbix/zabbix.conf.php owner=root group=www-data mode=0640
   notify:
-  - restart php5-fpm
+  - restart php-fpm
 
-- file: dest=/usr/share/zabbix/fonts/DejaVuSans.ttf src=/usr/share/fonts/truetype/fonts-japanese-gothic.ttf state=link
+- name: "Overwrite font symlink"
+  file:
+    dest: /usr/share/zabbix/fonts/DejaVuSans.ttf
+    src: "{{ zabbix_frontend_font_path }}"
+    state: link

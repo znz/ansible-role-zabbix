@@ -1,12 +1,31 @@
 ---
+zabbix_packages:
+- zabbix-agent
+- zabbix-server-pgsql
+- postgresql
+- python-psycopg2
+- acl # https://docs.ansible.com/ansible/become.html#becoming-an-unprivileged-user
+
+zabbix_dbname: zabbix
+zabbix_dbuser: zabbix
 zabbix_dbpass: zabbixdbpass
 zabbix_server_name: ""
+zabbix_server_conf: |
+  StartPingers=3
+  Timeout=5
 
-php5_memory_limit: "256M"
-php5_post_max_size: "16M"
-php5_upload_max_filesize: "10M"
-php5_max_execution_time: 300
-php5_max_input_time: 300
-php5_date_timezone: "Asia/Tokyo"
+zabbix_db_dump_dir: "/vagrant/backup"
 
-zabbix_server_timeout: 10
+php_memory_limit: "256M"
+php_post_max_size: "16M"
+php_upload_max_filesize: "10M"
+php_max_execution_time: 300
+php_max_input_time: 300
+php_date_timezone: "Asia/Tokyo"
+
+zabbix_frontend_packages:
+- nginx
+- php7.0-fpm
+- zabbix-frontend-php
+- fonts-noto-cjk
+zabbix_frontend_font_path: "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"

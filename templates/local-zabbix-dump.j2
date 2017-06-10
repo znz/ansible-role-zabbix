@@ -1,4 +1,5 @@
 #!/bin/sh
-DUMP_DIR=/vagrant/backup
+set -eu
+DUMP_DIR="{{ zabbix_db_dump_dir }}"
 mkdir -p "$DUMP_DIR"
 su postgres -c "pg_dump -Fc {{ zabbix_dbname }}" >"$DUMP_DIR/{{ zabbix_dbname }}.$(date +%Y%m%d%H%M%S).pg_dump"
