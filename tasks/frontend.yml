@@ -1,7 +1,6 @@
 ---
 - name: "Install frontend packages"
-  apt: name={{ item }}
-  with_items: "{{ zabbix_frontend_packages }}"
+  apt: name={{ zabbix_frontend_packages }}
 
 - lineinfile:
     dest: /etc/nginx/sites-available/default
