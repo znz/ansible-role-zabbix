@@ -21,7 +21,7 @@ None.
       sudo: yes
       roles:
       - role: znzj.ja_jp
-      - role: znzj.zabbix
+      - role: znz.zabbix
         zabbix_server_conf: |
           StartPingers=3
           Timeout=5
